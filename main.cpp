@@ -14,23 +14,21 @@ int LongestPalindrome(string S, int n)	//Recibe el String, el largo del string o
 	{
 	int M[n][n];
 	int L, R;
-	
-	for (L=1; L<=n; L++)
+	for (L=0; L<n; L++)
 		{
-		for (R=n; R>=0; R--)
+		for (R=n; R>0; R--)
 			{
-		    if (L == n || R == 0)
+		    if (L == 0 || R == n)
 				M[L][R] = 0;
-	  
 		    else if (S[R-1] == S[L-1])
-				M[L][R] = M[L+1][R-1] + 1;
-        	  
+				M[L][R] = M[L-1][R+1] + 1;
 		    else
-				M[L][R] = max(M[L+1][R], M[L][R-1]);
+				M[L][R] = max(M[L-1][R], M[L][R+1]);
 			}
 		}
-	return M[n][0];	
+	return M[n-1][1];	
 	}
+	
 	/*
 	if (L == n || R == 0)							
 		{
@@ -49,7 +47,7 @@ int main(){
 	int n;												//Largo String
     while (std::getline(std::cin, input)){ 				//Loop hasta el EOF
         n = input.length() + 1;
-		std::cout<< input << LongestPalindrome(input, n) << "\n";
+		std::cout<< LongestPalindrome(input, n) << "\n";
 		}
 	return 0;
 }
