@@ -1,3 +1,3 @@
 primer:
-	g++ -Wall -o ejecutar matrix.cpp
+	g++ -Wall -o ejecutar main.cpp
 	time ./ejecutar < long-words.txt
