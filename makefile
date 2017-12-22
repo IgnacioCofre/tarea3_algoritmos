@@ -1,3 +1,3 @@
 primer:
 	g++ -Wall -o ejecutar main.cpp
-	./ejecutar < input.dat
+	./ejecutar < long-words.txt > output-alumno.txt

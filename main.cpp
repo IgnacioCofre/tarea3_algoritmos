@@ -8,9 +8,8 @@ int max(int a, int b)								//Retorna el int más grande (Gracias google por la
 	return (a > b)? a:b;
 	}
 
-
-/*S[0 .. n-1]      m->     <-n*/
-int LongestPalindrome(string S, int n)	//Recibe el String, el largo del string original + 1, posicion del puntero izquierdo, posicion del puntero derecho
+/*S[0 .. n-1]      L->     <-R*/
+int LongestPalindrome(string S, int n)	//Recibe el String, el largo del string original + 1
 	{
 	int M[n][n];
 	int L, R;
@@ -28,18 +27,6 @@ int LongestPalindrome(string S, int n)	//Recibe el String, el largo del string o
 		}
 	return M[n-1][1];	
 	}
-	
-	/*
-	if (L == n || R == 0)							
-		{
-		return 0;
-		}
-	if (S[R-1] == S[L-1])								//Si son iguales se avanza (recordar matriz)
-		return 1 + LongestPalindrome(S, n, L+1, R-1);
-	else  												//sino, el máximo entre los otros 2 caminos
-		return max(LongestPalindrome(S, n, L+1, R), LongestPalindrome(S, n, L, R-1));	
-	}
-	*/
 
 int main(){
 	std::ios::sync_with_stdio(false);
